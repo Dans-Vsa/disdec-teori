@@ -57,7 +57,7 @@ Ada empat jenis IPC: Shared Memory, Message Passing, Remote Procedure Call, dan 
 ### 6.1 Message Passing
 
 - Standarnya MPI (Message Passing Interface). Versi terakhir menurut slide adalah 5.0.
-- **Contoh implementasi di Python**: mpi4py.
+- Contoh implementasi di Python: mpi4py.
 
 ### 6.2 RPC (Remote Procedure Call)
 
