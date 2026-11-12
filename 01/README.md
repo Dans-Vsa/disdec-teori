@@ -39,9 +39,9 @@ Tabel 1. Arsitektur dasar sistem terdistribusi
 
 | Arsitektur | Penjelasan |
 | --- | --- |
-| Client-Server | client mengirim permintaan dan server melayaninya. Peran keduanya terpisah jelas. |
-| Peer-to-Peer (P2P) | setiap node setara dan bisa jadi client sekaligus server. |
-| Hybrid | gabungan keduanya, misalnya server pusat untuk pencarian dan P2P untuk pengiriman data. |
+| Client-Server | Client mengirim permintaan dan server melayaninya. Peran keduanya terpisah jelas. |
+| Peer-to-Peer (P2P) | Setiap node setara dan bisa jadi client sekaligus server. |
+| Hybrid | Gabungan keduanya, misalnya server pusat untuk pencarian dan P2P untuk pengiriman data. |
 
 ### 4.2 Karakteristik
 

@@ -36,10 +36,10 @@ Tabel 1. Jenis fault
 
 | Jenis | Penjelasan |
 | --- | --- |
-| Transient fault | sementara, misalnya karena petir. |
-| Intermittent fault | muncul dan hilang berulang, misalnya karena hardware overheat. |
-| Permanent fault | bersifat tetap. |
-| Byzantine fault | komponen memberi hasil acak atau tidak konsisten. |
+| Transient fault | Sementara, misalnya karena petir. |
+| Intermittent fault | Muncul dan hilang berulang, misalnya karena hardware overheat. |
+| Permanent fault | Bersifat tetap. |
+| Byzantine fault | Komponen memberi hasil acak atau tidak konsisten. |
 
 ## 6. Klasifikasi Fault Berdasarkan Sumber
 
@@ -47,9 +47,9 @@ Tabel 2. Klasifikasi fault berdasarkan sumber
 
 | Sumber | Contoh |
 | --- | --- |
-| Hardware fault | disk crash, power failure. |
-| Software fault | bug, memory leak, race condition. |
-| Communication fault | packet loss, network partition. |
+| Hardware fault | Disk crash, power failure. |
+| Software fault | Bug, memory leak, race condition. |
+| Communication fault | Packet loss, network partition. |
 
 ## 7. Teknik untuk Mencapai Fault Tolerance
 

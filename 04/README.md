@@ -79,10 +79,10 @@ Tabel 1. Jenis replikasi
 
 | Jenis | Penjelasan |
 | --- | --- |
-| Master-slave (primary-secondary) | satu master menulis, slave hanya membaca. Konsistensinya kuat tetapi master bisa jadi bottleneck. Contoh: PostgreSQL streaming replication. |
-| Multi-master (peer-to-peer) | semua node bisa menulis dan membaca. Fleksibel tetapi rawan konflik data. Contoh: PostgreSQL logical replication, Apache Cassandra, MongoDB, Apache Ignite. |
-| Synchronous | update ditulis ke semua node sebelum dianggap selesai. Konsisten tetapi lambat. Contoh: Google Spanner. |
-| Asynchronous | update dikirim ke node lain setelah transaksi selesai di master. Cepat tetapi bisa ada delay data. Contoh: MySQL mode async dan DynamoDB. |
+| Master-slave (primary-secondary) | Satu master menulis, slave hanya membaca. Konsistensinya kuat tetapi master bisa jadi bottleneck. Contoh: PostgreSQL streaming replication. |
+| Multi-master (peer-to-peer) | Semua node bisa menulis dan membaca. Fleksibel tetapi rawan konflik data. Contoh: PostgreSQL logical replication, Apache Cassandra, MongoDB, Apache Ignite. |
+| Synchronous | Update ditulis ke semua node sebelum dianggap selesai. Konsisten tetapi lambat. Contoh: Google Spanner. |
+| Asynchronous | Update dikirim ke node lain setelah transaksi selesai di master. Cepat tetapi bisa ada delay data. Contoh: MySQL mode async dan DynamoDB. |
 
 ## 9. Strategi Sinkronisasi Replika
 
@@ -92,9 +92,9 @@ Tabel 2. Waktu sinkronisasi
 
 | Mode | Penjelasan |
 | --- | --- |
-| Asynchronous | sumber commit tanpa menunggu replika. Tercepat tetapi risiko kehilangan data tertinggi. |
-| Semi-synchronous | sumber menunggu satu replika menerima data. Seimbang antara konsistensi dan performa, dan ini yang dipakai MySQL. |
-| Synchronous | sumber menunggu semua replika commit. Konsistensi tertinggi tetapi performa terendah. |
+| Asynchronous | Sumber commit tanpa menunggu replika. Tercepat tetapi risiko kehilangan data tertinggi. |
+| Semi-synchronous | Sumber menunggu satu replika menerima data. Seimbang antara konsistensi dan performa, dan ini yang dipakai MySQL. |
+| Synchronous | Sumber menunggu semua replika commit. Konsistensi tertinggi tetapi performa terendah. |
 
 Berdasarkan arah replikasi: master-slave, master-master, dan master-master asymmetric (peran dan kemampuan node berbeda).
 

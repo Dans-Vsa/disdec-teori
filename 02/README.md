@@ -46,9 +46,9 @@ Tabel 1. Model komunikasi pesan
 
 | Model | Penjelasan |
 | --- | --- |
-| Langsung | menggunakan socket |
-| Tidak langsung | menggunakan mailbox atau message queue |
-| Pub/Sub | publisher menerbitkan pesan ke sebuah topik, lalu subscriber yang berlangganan topik itu menerimanya |
+| Langsung | Menggunakan socket |
+| Tidak langsung | Menggunakan mailbox atau message queue |
+| Pub/Sub | Publisher menerbitkan pesan ke sebuah topik, lalu subscriber yang berlangganan topik itu menerimanya |
 
 ## 6. Jenis IPC
 
@@ -91,10 +91,10 @@ Tabel 2. Masalah pada komunikasi antar proses
 
 | Masalah | Penjelasan dan solusi |
 | --- | --- |
-| Reliability | pesan harus terkirim lengkap dan berurutan walau ada paket hilang atau crash. Solusinya acknowledgement, transmisi ulang, dan protokol andal seperti TCP. |
-| Ordering | pesan harus diproses dalam urutan yang logis. Solusinya pipes (FIFO), message queue, shared memory, socket dan message passing, serta RPC. |
-| Security | solusinya enkripsi dan autentikasi. |
-| Performance | dipengaruhi latency dan bandwidth. |
+| Reliability | Pesan harus terkirim lengkap dan berurutan walau ada paket hilang atau crash. Solusinya acknowledgement, transmisi ulang, dan protokol andal seperti TCP. |
+| Ordering | Pesan harus diproses dalam urutan yang logis. Solusinya pipes (FIFO), message queue, shared memory, socket dan message passing, serta RPC. |
+| Security | Solusinya enkripsi dan autentikasi. |
+| Performance | Dipengaruhi latency dan bandwidth. |
 
 ## 10. Protokol Komunikasi
 
@@ -138,9 +138,9 @@ Tabel 3. Tantangan dan solusi
 
 | Tantangan | Solusi |
 | --- | --- |
-| Message loss | retransmission dan acknowledgement |
-| Deadlock | timeout dan algoritma deteksi |
-| Data inconsistency | protokol konsensus (Raft, Paxos) |
+| Message loss | Retransmission dan acknowledgement |
+| Deadlock | Timeout dan algoritma deteksi |
+| Data inconsistency | Protokol konsensus (Raft, Paxos) |
 | Security | SSL/TLS dan OAuth2 |
 
 ## 15. Isu Terkini
