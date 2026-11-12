@@ -77,6 +77,40 @@ Cloud storage adalah tempat penyimpanan data, sedangkan pengorganisasiannya dila
 - File storage
 - Block storage
 
-## 8. Pandangan Pribadi
+## 8. Praktik HDFS
+
+Materi minggu ini dilengkapi petunjuk "Mulai Menggunakan Apache Hadoop - HDFS" (versi 27 April 2026) untuk memasang HDFS pada satu mesin Linux. Berikut ringkasan alurnya.
+
+### 8.1 Persyaratan
+
+- JDK 17 dan atau 21. JDK 17 dipakai untuk server, sedangkan klien bisa memakai JDK 17 atau 21.
+- Apache Hadoop 3.5.0 (rilis 2 April 2026).
+- pdsh, ssh, dan layanan sshd yang sudah berjalan.
+
+### 8.2 Langkah pemasangan
+
+1. **Unduh** distribusi Apache Hadoop dari situs resmi hadoop.apache.org.
+2. **Instalasi Hadoop.** Ekstrak file tar.gz ke direktori pilihan, buat tautan simbolik ke `hadoop`, lalu atur variabel lingkungan PATH. Lokasi instalasi disebut `$HADOOP_HOME`.
+3. **Instalasi pdsh**, yaitu alat untuk menjalankan perintah paralel lewat ssh. Setelah itu atur `PDSH_RCMD_TYPE=ssh` bila perlu.
+4. **Atur ssh ke localhost tanpa password.** Buat kunci RSA tanpa passphrase, tambahkan kunci publik ke `authorized_keys`, dan beri izin file 0600.
+5. **Konfigurasi Hadoop** pada empat file di `$HADOOP_HOME/etc/hadoop/`:
+   - `hdfs-site.xml`: `dfs.replication` bernilai 1 karena hanya satu node.
+   - `core-site.xml`: `fs.defaultFS` bernilai `hdfs://localhost:9000`, ditambah pengaturan proxy user.
+   - `mapred-site.xml`: `mapreduce.framework.name` bernilai `yarn`.
+   - `yarn-site.xml`: pengaturan layanan shuffle, whitelist environment, dan batas memori YARN.
+6. **Format NameNode.** Dilakukan sekali saja. Jika diulang, berbagai file yang sudah diproses di HDFS akan terhapus.
+7. **Atur JAVA_HOME** di `hadoop-env.sh` sesuai lokasi JDK di komputer.
+8. **Jalankan daemon HDFS.** Status bisa dipantau lewat antarmuka web.
+
+### 8.3 Setelah berhasil
+
+Jika semua langkah berhasil, Hadoop dan HDFS siap dipakai. Panduan juga memuat contoh operasi file pada HDFS dan cara menghentikan HDFS. Daftar lengkap perintah ada di dokumentasi FileSystemShell Apache Hadoop.
+
+### 8.4 Catatan
+
+- Nilai replikasi 1 hanya cocok untuk praktik pada satu mesin. Pada klaster sungguhan nilainya lebih besar supaya data tetap aman jika satu node gagal, sesuai konsep replikasi di minggu 4.
+- Konfigurasi `core-site.xml` juga yang dipakai untuk menghubungkan HDFS dengan cloud storage seperti S3.
+
+## 9. Pandangan Pribadi
 
 Hal yang paling jelas bagi saya dari materi ini adalah bahwa pengguna cukup melihat satu penyimpanan, padahal di belakangnya banyak mesin yang bekerja sama. Ini mirip dengan konsep transparansi di minggu 1. Saya juga melihat bahwa HDFS menutup kelemahan hardware murah dengan replikasi, sehingga klaster bisa dibangun dari mesin biasa tanpa takut satu disk rusak membuat data hilang.
