@@ -4,7 +4,7 @@ Kumpulan rangkuman materi teori mata kuliah **Sistem Terdistribusi dan Terdesent
 
 Nama: Danish Vesa Bintang Parikesit
 
-Dosen pengampu: Dr. Bambang Purnomosidi D. P.
+Dosen pengampu: Dr. Bambang Purnomosidi Dwi Putranto, S.E., Akt., S.Kom., MMSI
 
 ## Daftar Materi
 
