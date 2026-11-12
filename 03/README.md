@@ -2,15 +2,19 @@ Materi Minggu 3: Sinkronisasi dan Koordinasi pada Sistem Terdistribusi
 
 AI yang digunakan: Claude (Anthropic)
 
-Prompt: "Saya butuh bantuan untuk mencari sumber dan menyusun rangkuman materi minggu 3 dari slide kuliah."
+Prompt: "Bantu saya merangkum slide minggu 3 tentang sinkronisasi dan koordinasi, urut sesuai agenda pembahasan."
 
-Bagian yang disesuaikan dari keluaran prompt ada pada: saya memeriksa isi rangkuman terhadap slide kuliah, merapikan susunan dan kalimat, serta menulis bagian "Pandangan Pribadi" dengan pendapat saya sendiri.
+Bagian yang disesuaikan dari keluaran prompt ada pada: saya memeriksa kesesuaian isi dengan slide, terutama bagian vector clock dan mutual exclusion, lalu menyesuaikan kalimatnya. "Pandangan Pribadi" di akhir adalah pendapat saya.
 
 ---
 
 # Rangkuman Minggu 3: Sinkronisasi dan Koordinasi
 
-## 1. Tujuan Pembelajaran
+## 1. Inti Materi
+
+Sinkronisasi diperlukan agar banyak node bisa bekerja konsisten tanpa race condition. Materinya mencakup sinkronisasi waktu fisik (NTP dan PTP), waktu logis (vector clock), mutual exclusion (terpusat, Ricart-Agrawala, token), dan pemilihan koordinator (Bully, Ring, Raft, Paxos).
+
+## 2. Tujuan Pembelajaran
 
 1. Menjelaskan mengapa sinkronisasi diperlukan untuk koordinasi pada sistem terdistribusi.
 2. Menjelaskan tantangan sinkronisasi.
@@ -20,7 +24,7 @@ Bagian yang disesuaikan dari keluaran prompt ada pada: saya memeriksa isi rangku
 6. Menjelaskan masalah pemilihan koordinator dan cara memecahkannya.
 7. Memberi contoh studi kasus nyata di industri.
 
-## 2. Apa itu Sinkronisasi
+## 3. Apa itu Sinkronisasi
 
 Sinkronisasi adalah koordinasi proses, data, dan sumber daya di berbagai node supaya operasi tetap konsisten dan andal. Sinkronisasi membantu menjaga konsistensi data, mengelola proses konkuren, dan membuat sistem berperilaku koheren di seluruh node. Dengan mekanisme yang tepat, konflik data (data race) bisa dicegah.
 
@@ -34,7 +38,7 @@ Contoh race condition pada e-commerce:
 - B membeli dan juga mengurangi stok menjadi 9.
 - Kenyataannya ada 2 pembelian sehingga stok seharusnya 8, tetapi yang tercatat 9.
 
-## 3. Mengapa Sinkronisasi Penting
+## 4. Mengapa Sinkronisasi Penting
 
 - Integritas data, supaya tidak terjadi data race maupun race condition.
 - Sinkronisasi state di semua node. Contohnya game multiplayer yang mengirim posisi, kesehatan, dan inventaris pemain ke semua klien, atau keranjang belanja yang sama di browser dan basis data.
@@ -44,7 +48,7 @@ Contoh race condition pada e-commerce:
 - Load balancing dan operasi yang scalable.
 - Mencegah deadlock.
 
-## 4. Tantangan Sinkronisasi
+## 5. Tantangan Sinkronisasi
 
 - Network latency dan partitioning
 - Skalabilitas
@@ -53,7 +57,7 @@ Contoh race condition pada e-commerce:
 - Konsistensi data
 - Sinkronisasi waktu
 
-## 5. Sinkronisasi Waktu Fisik
+## 6. Sinkronisasi Waktu Fisik
 
 Sinkronisasi waktu fisik adalah penyelarasan real-time clock di sistem terdistribusi dengan standar waktu umum. Hal ini penting untuk korelasi log, penjadwalan event, dan menjaga konsistensi sistem. Caranya lewat protokol dan atau sinkronisasi dengan sumber berbasis perangkat keras, yaitu atomic clock dan GPS.
 
@@ -77,11 +81,11 @@ Protokol:
 - NTP (Network Time Protocol).
 - PTP (Precision Time Protocol), standar IEEE 1588. Versi 2008 tidak backward compatible dengan versi 2002, dan versi 2019 menambahkan perbaikan yang kompatibel dengan 2008. IEEE 802.1AS (gPTP) adalah adaptasinya untuk Audio Video Bridging dan Time-Sensitive Networking. Syarat lain: NIC harus mendukung hardware timestamping.
 
-## 6. Sinkronisasi Waktu Logis
+## 7. Sinkronisasi Waktu Logis
 
 Sinkronisasi waktu logis menetapkan urutan sebab akibat dari kejadian (causal order) dan tidak terkait dengan waktu fisik. Jika A terjadi sebelum B dan B sebelum C, maka A terjadi sebelum C (transitivitas). Ini berasal dari Leslie Lamport (lihat minggu 2).
 
-### 6.1 Vector Clock
+### 7.1 Vector Clock
 
 Setiap proses memiliki vektor dengan satu posisi untuk tiap proses. Untuk tiga proses A, B, C, posisinya A di indeks 0, B di indeks 1, C di indeks 2, dan semuanya mulai dari [0,0,0].
 
@@ -99,7 +103,7 @@ Aturan perbandingan:
 - A terjadi sebelum B jika semua angka pada clock A lebih kecil atau sama dengan clock B dan minimal satu lebih kecil.
 - Dua event concurrent (independen) jika tidak ada yang lebih kecil atau sama di semua komponen. Contohnya C [2,1,2] dan A [2,0,0] di akhir adalah independen menurut slide.
 
-## 7. Mutual Exclusion
+## 8. Mutual Exclusion
 
 Mutual exclusion memastikan hanya satu proses atau thread yang mengakses sumber daya bersama (printer, file, database) pada satu waktu. Bagian kode yang mengakses sumber daya bersama disebut critical section (CS). Kalau lebih dari satu proses masuk bersamaan, data bisa tidak konsisten atau rusak.
 
@@ -116,12 +120,12 @@ Pendekatan penyelesaiannya:
 2. **Ricart-Agrawala**. Terdistribusi penuh tanpa koordinator. Setiap proses mengirim permintaan dengan stempel waktu, dan boleh masuk CS jika semua proses lain menjawab OK. Setiap CS butuh 2 x (N - 1) pesan. Kelebihannya fault tolerant, kekurangannya overhead pesan tinggi.
 3. **Token-based**. Sebuah token unik beredar di antara proses, dan hanya pemegang token yang boleh masuk CS. Kelebihannya hanya 1 pesan per entri CS. Kekurangannya kehilangan token sulit dideteksi dan butuh mekanisme pemulihan.
 
-## 8. Pemilihan Koordinator
+## 9. Pemilihan Koordinator
 
 Beberapa node mungkin butuh satu koordinator untuk mengelola sumber daya bersama, menyinkronkan operasi, dan mengambil keputusan global. Ketika koordinator gagal atau ada node baru bergabung, sistem harus memilih pemimpin baru secara otomatis.
 
 Algoritma yang bisa dipakai: Bully, Ring, serta Raft atau Paxos (berbasis konsensus). Contohnya Apache ZooKeeper memakai Zab (ZooKeeper Atomic Broadcast, mirip Paxos), dan Kubernetes memakai Raft lewat etcd.
 
-## 9. Pandangan Pribadi
+## 10. Pandangan Pribadi
 
 Menurut saya sinkronisasi adalah masalah yang paling mudah diremehkan. Contoh stok e-commerce di atas terlihat sepele, tetapi kalau tidak ditangani, penjual bisa menjual barang yang sebenarnya sudah habis. Dari semua pendekatan mutual exclusion, saya melihat tidak ada yang sempurna. Yang terpusat sederhana tetapi punya titik gagal tunggal, sedangkan yang terdistribusi lebih tahan gagal tetapi lebih banyak pesan. Jadi pilihannya bergantung pada kebutuhan sistem.
