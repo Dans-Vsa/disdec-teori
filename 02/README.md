@@ -7,24 +7,26 @@ Prompt: "Saya butuh bantuan untuk mencari sumber dan menyusun rangkuman materi m
 Bagian yang disesuaikan dari keluaran prompt ada pada: saya memeriksa isi rangkuman terhadap slide kuliah, merapikan susunan dan kalimat, serta menulis bagian "Pandangan Pribadi" dengan pendapat saya sendiri.
 
 
+---
+
 # Rangkuman Minggu 2: Proses dan Komunikasi Antar Proses
 
-## Tujuan Pembelajaran
+## 1. Tujuan Pembelajaran
 
 1. Menjelaskan konsep proses pada sistem terdistribusi.
 2. Menjelaskan berbagai jenis komunikasi antar proses (IPC).
 3. Menganalisis isu sinkronisasi, reliabilitas, dan keamanan.
 4. Mengaitkan konsep dengan contoh nyata seperti microservices, cloud, dan distributed messaging.
 
-## Proses dan Manajemen Proses
+## 2. Proses dan Manajemen Proses
 
 Proses adalah program yang sedang dieksekusi. Manajemen proses mencakup:
 
-- Process creation: pembuatan proses baru
-- Process migration: perpindahan proses dari satu node ke node lain
-- Process monitoring: pemantauan kondisi proses
+- **Process creation**: pembuatan proses baru
+- **Process migration**: perpindahan proses dari satu node ke node lain
+- **Process monitoring**: pemantauan kondisi proses
 
-## Mengapa Perlu Komunikasi Antar Proses
+## 3. Mengapa Perlu Komunikasi Antar Proses
 
 Pada sistem terdistribusi, setiap node menjalankan proses sendiri, tetapi semuanya harus bekerja sebagai satu kesatuan logis. Karena itu antar node harus berkomunikasi. Proses bisa berada di node yang berbeda sehingga tidak ada shared memory di antara mereka, jadi dibutuhkan IPC khusus untuk sistem terdistribusi.
 
@@ -34,26 +36,30 @@ Contohnya:
 2. Gojek/Grab: antarmuka pengguna berkomunikasi dengan layanan driver, pelacakan lokasi, dan penghitungan biaya
 3. Chat dan video call WhatsApp, yaitu komunikasi point-to-point pada infrastruktur terdistribusi
 
-## Model Komunikasi Pesan
+## 4. Model Komunikasi Pesan
 
-- Langsung: menggunakan socket
-- Tidak langsung: menggunakan mailbox atau message queue
-- Pub/Sub: publisher menerbitkan pesan ke sebuah topik, lalu subscriber yang berlangganan topik itu menerimanya
+Tabel 1. Model komunikasi pesan
 
-## Jenis IPC
+| Model | Penjelasan |
+| --- | --- |
+| Langsung | menggunakan socket |
+| Tidak langsung | menggunakan mailbox atau message queue |
+| Pub/Sub | publisher menerbitkan pesan ke sebuah topik, lalu subscriber yang berlangganan topik itu menerimanya |
+
+## 5. Jenis IPC
 
 Ada empat jenis IPC: Shared Memory, Message Passing, Remote Procedure Call, dan Middleware. Shared memory tidak cocok untuk sistem terdistribusi karena tidak ada akses ke memori pada node-node yang berbeda.
 
-Message Passing:
+### 5.1 Message Passing
 
 - Standarnya MPI (Message Passing Interface). Versi terakhir menurut slide adalah 5.0.
-- Contoh implementasi di Python: mpi4py.
+- **Contoh implementasi di Python**: mpi4py.
 
-RPC (Remote Procedure Call):
+### 5.2 RPC (Remote Procedure Call)
 
 Memanggil prosedur di node lain seolah-olah memanggil fungsi lokal. Contohnya gRPC.
 
-MOM (Message-Oriented Middleware):
+### 5.3 MOM (Message-Oriented Middleware)
 
 Infrastruktur yang memfasilitasi komunikasi dan pertukaran data lewat pesan, yaitu unit informasi mandiri yang dikirim melalui saluran komunikasi. Pesan dikirim dan diterima secara asinkron.
 
@@ -66,28 +72,32 @@ Standar dan protokol MOM:
 5. DDS dari OMG (Object Management Group)
 6. XMPP (eXtensible Messaging and Presence Protocol)
 
-## Studi Kasus: Microservices
+## 6. Studi Kasus: Microservices
 
 Pada microservices, aplikasi dipecah menjadi layanan-layanan kecil yang berjalan sebagai proses terpisah dan saling berkomunikasi lewat jaringan memakai mekanisme IPC di atas.
 
-## Komunikasi Sinkron dan Asinkron
+## 7. Komunikasi Sinkron dan Asinkron
 
-- Sinkron: pengirim menunggu respons sebelum melanjutkan pekerjaan.
-- Asinkron: pengirim tidak menunggu, pesan diproses kemudian (misalnya lewat message queue).
+- **Sinkron**: pengirim menunggu respons sebelum melanjutkan pekerjaan.
+- **Asinkron**: pengirim tidak menunggu, pesan diproses kemudian (misalnya lewat message queue).
 
-## Masalah pada Komunikasi Antar Proses
+## 8. Masalah pada Komunikasi Antar Proses
 
-- Reliability: pesan harus terkirim lengkap dan berurutan walau ada paket hilang atau crash. Solusinya acknowledgement, transmisi ulang, dan protokol andal seperti TCP.
-- Ordering: pesan harus diproses dalam urutan yang logis. Solusinya pipes (FIFO), message queue, shared memory, socket dan message passing, serta RPC.
-- Security: solusinya enkripsi dan autentikasi.
-- Performance: dipengaruhi latency dan bandwidth.
+Tabel 2. Masalah pada komunikasi antar proses
 
-## Protokol Komunikasi
+| Masalah | Penjelasan dan solusi |
+| --- | --- |
+| Reliability | pesan harus terkirim lengkap dan berurutan walau ada paket hilang atau crash. Solusinya acknowledgement, transmisi ulang, dan protokol andal seperti TCP. |
+| Ordering | pesan harus diproses dalam urutan yang logis. Solusinya pipes (FIFO), message queue, shared memory, socket dan message passing, serta RPC. |
+| Security | solusinya enkripsi dan autentikasi. |
+| Performance | dipengaruhi latency dan bandwidth. |
 
-- Protokol dasar: TCP, UDP, HTTP.
+## 9. Protokol Komunikasi
+
+- **Protokol dasar**: TCP, UDP, HTTP.
 - Protokol tingkat atas yang berjalan di atas HTTP: gRPC, GraphQL, REST.
 
-## Sinkronisasi Clock
+## 10. Sinkronisasi Clock
 
 Setiap node punya clock lokal sendiri. Karena latensi jaringan dan pergeseran (drift) perangkat keras, clock lokal lama-lama menyimpang. Sinkronisasi clock menyelaraskan clock beberapa komputer ke waktu yang sama dan konsisten, penting untuk pengurutan kejadian yang akurat, konsistensi data, dan operasi yang terkoordinasi.
 
@@ -96,7 +106,7 @@ Metode umum:
 - Sinkronisasi eksternal memakai atomic clock (International Atomic Time / TAI), GPS, dan UTC.
 - Protokol NTP (Network Time Protocol) atau PTP (Precision Time Protocol). PTP lebih presisi daripada NTP.
 
-## Logical Clock (Lamport)
+## 11. Logical Clock (Lamport)
 
 Kalau pencatatan memakai timestamp jam sungguhan, urutan kejadian bisa bergeser karena latensi atau gangguan jaringan. Lamport menawarkan logical clock yang tidak terkait dengan waktu nyata. Aturannya:
 
@@ -114,24 +124,28 @@ Dengan begini urutan yang benar tetap terjaga: Sales, Product, Invoice.
 
 Lamport clock masih berupa scalar clock. Pengembangan berikutnya antara lain Vector Clocks (Fidge dan Mattern, 1988), Plausible Clocks (1999), Chain Clocks (2005), Interval Tree Clocks (2008), dan Blum Clocks (2019).
 
-## Koordinasi Proses
+## 12. Koordinasi Proses
 
 Koordinasi proses adalah mekanisme yang membuat beberapa proses independen di berbagai komputer bisa bekerja sama dengan mengelola komunikasi, sinkronisasi, dan akses ke sumber daya bersama tanpa konflik seperti deadlock atau race condition. Contoh perangkatnya: Apache ZooKeeper, etcd, Consul, ClickHouse Keeper, Oxia, dan KRaft.
 
-## Tantangan dan Solusi
+## 13. Tantangan dan Solusi
 
-- Message loss: retransmission dan acknowledgement
-- Deadlock: timeout dan algoritma deteksi
-- Data inconsistency: protokol konsensus (Raft, Paxos)
-- Security: SSL/TLS dan OAuth2
+Tabel 3. Tantangan dan solusi
 
-## Isu Terkini
+| Tantangan | Solusi |
+| --- | --- |
+| Message loss | retransmission dan acknowledgement |
+| Deadlock | timeout dan algoritma deteksi |
+| Data inconsistency | protokol konsensus (Raft, Paxos) |
+| Security | SSL/TLS dan OAuth2 |
+
+## 14. Isu Terkini
 
 - Edge dan Fog Computing
 - Observability dan tracing (telemetry)
-- Orkestrasi container: Kubernetes dan Docker Swarm
+- **Orkestrasi container**: Kubernetes dan Docker Swarm
 
-## Pandangan Pribadi (Diskusi)
+## 15. Pandangan Pribadi (Diskusi)
 
 Apakah GraphQL termasuk RPC?
 

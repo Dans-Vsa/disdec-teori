@@ -7,33 +7,39 @@ Prompt: "Saya butuh bantuan untuk mencari sumber dan menyusun rangkuman materi m
 Bagian yang disesuaikan dari keluaran prompt ada pada: saya memeriksa isi rangkuman terhadap slide kuliah, merapikan susunan dan kalimat, serta menulis bagian "Pandangan Pribadi" dengan pendapat dan pengalaman saya sendiri.
 
 
+---
+
 # Rangkuman Minggu 1: Pengenalan Sistem Terdistribusi dan Terdesentralisasi
 
-## Tujuan Pembelajaran
+## 1. Tujuan Pembelajaran
 
 1. Memahami konsep sistem terdistribusi dan sistem terdesentralisasi.
 2. Memahami perbedaan antara keduanya.
 3. Mengenali contoh penerapannya di dunia nyata.
 4. Mengetahui tantangan dan tren terbaru di bidang ini.
 
-## Arti Penting
+## 2. Arti Penting
 
 Layanan modern seperti Google, Netflix, dan blockchain tidak mungkin berjalan pada satu komputer saja. Jumlah data dan pengguna yang terus bertambah menuntut sistem yang bisa berkembang mengikuti beban, tetap berjalan ketika sebagian komponennya gagal, dan tersedia 24 jam.
 
-- Skalabilitas: kemampuan sistem menangani peningkatan beban kerja, pengguna, atau permintaan tanpa menurunkan kinerja.
-- Fault-tolerant: kemampuan sistem tetap beroperasi normal meskipun sebagian komponen (hardware maupun software) gagal.
+- **Skalabilitas**: kemampuan sistem menangani peningkatan beban kerja, pengguna, atau permintaan tanpa menurunkan kinerja.
+- **Fault-tolerant**: kemampuan sistem tetap beroperasi normal meskipun sebagian komponen (hardware maupun software) gagal.
 
-## Sistem Terdistribusi
+## 3. Sistem Terdistribusi
 
 Menurut Tanenbaum dan van Steen (2007), sistem terdistribusi adalah kumpulan komputer independen yang tampak bagi penggunanya sebagai satu sistem yang koheren. Komponennya independen, berkomunikasi lewat jaringan, dan menyediakan transparansi. Transparansi artinya pengguna tidak perlu tahu lokasi data, cara aksesnya, proses replikasi, atau kegagalan yang terjadi pada salah satu node.
 
-Arsitektur dasar:
+### 3.1 Arsitektur dasar
 
-- Client-Server: client mengirim permintaan dan server melayaninya. Peran keduanya terpisah jelas.
-- Peer-to-Peer (P2P): setiap node setara dan bisa jadi client sekaligus server.
-- Hybrid: gabungan keduanya, misalnya server pusat untuk pencarian dan P2P untuk pengiriman data.
+Tabel 1. Arsitektur dasar sistem terdistribusi
 
-Karakteristik:
+| Arsitektur | Penjelasan |
+| --- | --- |
+| Client-Server | client mengirim permintaan dan server melayaninya. Peran keduanya terpisah jelas. |
+| Peer-to-Peer (P2P) | setiap node setara dan bisa jadi client sekaligus server. |
+| Hybrid | gabungan keduanya, misalnya server pusat untuk pencarian dan P2P untuk pengiriman data. |
+
+### 3.2 Karakteristik
 
 1. Transparansi lokasi
 2. Skalabilitas
@@ -41,18 +47,22 @@ Karakteristik:
 4. Kinerja tinggi
 5. Heterogenitas (perangkat keras dan lunaknya beragam)
 
-## Sistem Terdesentralisasi
+## 4. Sistem Terdesentralisasi
 
 Pada sistem tersentralisasi, kontrol ada di satu titik. Pada sistem terdesentralisasi, kontrol dibagi sehingga tidak ada single point of failure, dan keputusan diambil bersama lewat konsensus. Contohnya Blockchain, DNS, dan BitTorrent.
 
-## Perbedaan Terdistribusi dan Terdesentralisasi
+## 5. Perbedaan Terdistribusi dan Terdesentralisasi
 
-- Terdistribusi fokusnya pada pembagian beban kerja. Contoh: Google File System dan MinIO Object Storage.
-- Terdesentralisasi fokusnya pada pembagian kontrol. Contoh: Blockchain.
+Tabel 2. Perbandingan kedua jenis sistem
+
+| Aspek | Terdistribusi | Terdesentralisasi |
+| --- | --- | --- |
+| Fokus | Pembagian beban kerja | Pembagian kontrol |
+| Contoh | Google File System, MinIO Object Storage | Blockchain |
 
 Keduanya berkaitan tetapi fokusnya berbeda. Sistem terdesentralisasi biasanya juga terdistribusi, sedangkan sistem terdistribusi belum tentu terdesentralisasi karena kontrolnya masih bisa dipegang satu organisasi.
 
-## Studi Kasus
+## 6. Studi Kasus
 
 Terdistribusi:
 
@@ -67,45 +77,49 @@ Terdesentralisasi:
 - DNS
 - BitTorrent
 
-## CAP Theorem
+## 7. CAP Theorem
 
 CAP Theorem dari Eric Brewer (2000) menyatakan bahwa pada penyimpanan data terdistribusi ada tiga properti:
 
-- Consistency: setiap operasi baca mengembalikan hasil penulisan terbaru, atau error.
-- Availability: setiap permintaan ke node yang tidak gagal mendapat respons non-error, walau datanya belum tentu yang terbaru.
-- Partition Tolerance: sistem tetap beroperasi walau komunikasi antar node terputus.
+- **Consistency**: setiap operasi baca mengembalikan hasil penulisan terbaru, atau error.
+- **Availability**: setiap permintaan ke node yang tidak gagal mendapat respons non-error, walau datanya belum tentu yang terbaru.
+- **Partition Tolerance**: sistem tetap beroperasi walau komunikasi antar node terputus.
 
 Karena partisi jaringan pasti bisa terjadi, perancang sistem harus memilih antara konsistensi dan ketersediaan:
 
-- AP (Availability + Partition Tolerance): permintaan selalu dilayani, tetapi data bisa tidak sinkron. Contoh di slide: MongoDB.
-- CP (Consistency + Partition Tolerance): permintaan ditolak supaya data tetap konsisten, sehingga layanan sementara tidak tersedia. Contoh di slide: Apache Cassandra.
+Tabel 3. Pilihan AP dan CP
+
+| Pilihan | Perilaku | Konsekuensi | Contoh di slide |
+| --- | --- | --- | --- |
+| AP | Permintaan selalu dilayani | Data bisa tidak sinkron | MongoDB |
+| CP | Permintaan ditolak supaya data tetap konsisten | Layanan sementara tidak tersedia | Apache Cassandra |
 
 Pengelompokan ini mengikuti materi kuliah. Pada praktiknya perilaku database tergantung konfigurasinya.
 
-## Konsistensi Data
+## 8. Konsistensi Data
 
-- Strong consistency: hasil baca selalu sama di semua node. Cocok untuk bank.
-- Eventual consistency: data akan konsisten setelah beberapa waktu. Cukup untuk media sosial.
+- **Strong consistency**: hasil baca selalu sama di semua node. Cocok untuk bank.
+- **Eventual consistency**: data akan konsisten setelah beberapa waktu. Cukup untuk media sosial.
 
-## Tantangan
+## 9. Tantangan
 
 - Latency (lama pemrosesan) dan throughput (jumlah yang diproses).
 - Keamanan, misalnya DDoS dan Sybil attack. Sybil attack adalah pembuatan banyak identitas palsu untuk menguasai pengaruh, suara, atau reputasi di jaringan, terutama pada sistem P2P dan blockchain.
 - Kompleksitas manajemen node.
 - Tata kelola (governance) pada sistem terdesentralisasi.
 
-## Tren Masa Depan
+## 10. Tren Masa Depan
 
 1. Cloud-native (Kubernetes dan Docker)
 2. Edge dan Fog Computing
 3. Web3 dan DeFi
 4. Federated learning (AI terdistribusi)
 
-## Ringkasan
+## 11. Ringkasan
 
 Sistem terdistribusi berfokus pada pembagian beban kerja, sedangkan sistem terdesentralisasi berfokus pada pembagian kontrol. Keduanya saling terkait dan menjadi fondasi teknologi modern.
 
-## Pandangan Pribadi
+## 12. Pandangan Pribadi
 
 Mengapa dunia semakin bergerak ke distribusi dan desentralisasi?
 
