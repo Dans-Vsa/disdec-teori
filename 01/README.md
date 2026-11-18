@@ -1,11 +1,10 @@
-Materi Minggu 1: Pengenalan Sistem Terdistribusi dan Terdesentralisasi
-
-AI yang digunakan: Claude (Anthropic)
-
-Prompt: "Tolong bantu saya mencari sumber dan menyusun rangkuman materi minggu 1 dari slide kuliah."
-
-Bagian yang disesuaikan dari keluaran prompt ada pada: saya mencocokkan isi dengan slide kuliah dan menyesuaikan beberapa kalimat agar lebih mudah saya pahami. Bagian "Pandangan Pribadi" saya tulis berdasarkan pendapat saya sendiri.
-
+> **Materi Minggu 1:** Pengenalan Sistem Terdistribusi dan Terdesentralisasi
+>
+> **AI yang digunakan:** Claude (Anthropic)
+>
+> **Prompt:** "Tolong bantu saya mencari sumber dan menyusun rangkuman materi minggu 1 dari slide kuliah."
+>
+> **Bagian yang disesuaikan dari keluaran prompt ada pada:** saya mencocokkan isi dengan slide kuliah dan menyesuaikan beberapa kalimat agar lebih mudah saya pahami. Bagian "Pandangan Pribadi" saya tulis berdasarkan pendapat saya sendiri.
 
 ---
 

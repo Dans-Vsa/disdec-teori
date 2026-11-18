@@ -1,11 +1,10 @@
-Materi Minggu 2: Proses dan Komunikasi Antar Proses pada Sistem Terdistribusi
-
-AI yang digunakan: Claude (Anthropic)
-
-Prompt: "Saya butuh bantuan sedikit untuk menyusun rangkuman materi minggu 2 dari slide, sekaligus mencari penjelasan tambahan untuk istilah yang kurang jelas."
-
-Bagian yang disesuaikan dari keluaran prompt ada pada: saya membaca ulang rangkuman bersama slide, merapikan susunannya, dan menambahkan pandangan pribadi pada bagian diskusi.
-
+> **Materi Minggu 2:** Proses dan Komunikasi Antar Proses pada Sistem Terdistribusi
+>
+> **AI yang digunakan:** Claude (Anthropic)
+>
+> **Prompt:** "Saya butuh bantuan sedikit untuk menyusun rangkuman materi minggu 2 dari slide, sekaligus mencari penjelasan tambahan untuk istilah yang kurang jelas."
+>
+> **Bagian yang disesuaikan dari keluaran prompt ada pada:** saya membaca ulang rangkuman bersama slide, merapikan susunannya, dan menambahkan pandangan pribadi pada bagian diskusi.
 
 ---
 

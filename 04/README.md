@@ -1,10 +1,10 @@
-Materi Minggu 4: Konsistensi dan Replikasi pada Sistem Terdistribusi
-
-AI yang digunakan: Claude (Anthropic)
-
-Prompt: "Saya ingin dibantu menyusun rangkuman materi minggu 4 dari slide, termasuk jawaban untuk pertanyaan diskusi di akhir."
-
-Bagian yang disesuaikan dari keluaran prompt ada pada: saya mengecek isi terhadap slide, merapikan bahasa, dan menyesuaikan jawaban diskusi dengan pendapat saya.
+> **Materi Minggu 4:** Konsistensi dan Replikasi pada Sistem Terdistribusi
+>
+> **AI yang digunakan:** Claude (Anthropic)
+>
+> **Prompt:** "Saya ingin dibantu menyusun rangkuman materi minggu 4 dari slide, termasuk jawaban untuk pertanyaan diskusi di akhir."
+>
+> **Bagian yang disesuaikan dari keluaran prompt ada pada:** saya mengecek isi terhadap slide, merapikan bahasa, dan menyesuaikan jawaban diskusi dengan pendapat saya.
 
 ---
 

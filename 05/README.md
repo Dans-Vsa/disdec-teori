@@ -1,10 +1,10 @@
-Materi Minggu 5: Fault Tolerance
-
-AI yang digunakan: Claude (Anthropic)
-
-Prompt: "Tolong rangkumkan materi minggu 5 tentang fault tolerance dari slide, urut sesuai agenda."
-
-Bagian yang disesuaikan dari keluaran prompt ada pada: saya mencocokkan rangkuman dengan slide, menyederhanakan beberapa penjelasan, dan menulis "Pandangan Pribadi" sendiri.
+> **Materi Minggu 5:** Fault Tolerance
+>
+> **AI yang digunakan:** Claude (Anthropic)
+>
+> **Prompt:** "Tolong rangkumkan materi minggu 5 tentang fault tolerance dari slide, urut sesuai agenda."
+>
+> **Bagian yang disesuaikan dari keluaran prompt ada pada:** saya mencocokkan rangkuman dengan slide, menyederhanakan beberapa penjelasan, dan menulis "Pandangan Pribadi" sendiri.
 
 ---
 

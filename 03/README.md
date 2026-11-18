@@ -1,10 +1,10 @@
-Materi Minggu 3: Sinkronisasi dan Koordinasi pada Sistem Terdistribusi
-
-AI yang digunakan: Claude (Anthropic)
-
-Prompt: "Bantu saya merangkum slide minggu 3 tentang sinkronisasi dan koordinasi, urut sesuai agenda pembahasan."
-
-Bagian yang disesuaikan dari keluaran prompt ada pada: saya memeriksa kesesuaian isi dengan slide, terutama bagian vector clock dan mutual exclusion, lalu menyesuaikan kalimatnya. "Pandangan Pribadi" di akhir adalah pendapat saya.
+> **Materi Minggu 3:** Sinkronisasi dan Koordinasi pada Sistem Terdistribusi
+>
+> **AI yang digunakan:** Claude (Anthropic)
+>
+> **Prompt:** "Bantu saya merangkum slide minggu 3 tentang sinkronisasi dan koordinasi, urut sesuai agenda pembahasan."
+>
+> **Bagian yang disesuaikan dari keluaran prompt ada pada:** saya memeriksa kesesuaian isi dengan slide, terutama bagian vector clock dan mutual exclusion, lalu menyesuaikan kalimatnya. "Pandangan Pribadi" di akhir adalah pendapat saya.
 
 ---
 
