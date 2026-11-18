@@ -32,7 +32,3 @@ disdec-teori/
 ├── 05/README.md
 └── 06/README.md
 ```
-
-## Catatan Penggunaan AI
-
-Rangkuman disusun dengan bantuan AI (Claude, Anthropic) berdasarkan slide kuliah. Prompt yang dipakai dan bagian yang disesuaikan ditulis di bagian atas `README.md` pada tiap direktori minggu.
