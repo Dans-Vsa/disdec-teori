@@ -2,9 +2,9 @@
 >
 > **AI yang digunakan:** Claude (Anthropic)
 >
-> **Prompt:** "Tolong rangkumkan materi minggu 5 tentang fault tolerance dari slide, urut sesuai agenda."
+> **Prompt:** "Sebutkan poin-poin penting dari slide minggu 5 tentang fault tolerance."
 >
-> **Bagian yang disesuaikan dari keluaran prompt ada pada:** saya mencocokkan rangkuman dengan slide, menyederhanakan beberapa penjelasan, dan menulis "Pandangan Pribadi" sendiri.
+> **Bagian yang disesuaikan dari keluaran prompt ada pada:** poin dari AI saya cocokkan dengan slide, saya sederhanakan beberapa penjelasan, dan "Pandangan Pribadi" saya tulis sendiri.
 
 ---
 

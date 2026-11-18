@@ -2,9 +2,9 @@
 >
 > **AI yang digunakan:** Claude (Anthropic)
 >
-> **Prompt:** "Bantu saya menyusun rangkuman materi minggu 6 dari slide, dari file system sampai cloud storage."
+> **Prompt:** "Ambil poin-poin penting dari slide minggu 6 tentang file system, DFS, HDFS, dan cloud storage."
 >
-> **Bagian yang disesuaikan dari keluaran prompt ada pada:** saya membaca ulang rangkuman dan menyesuaikannya dengan slide, lalu menambahkan pandangan pribadi saya.
+> **Bagian yang disesuaikan dari keluaran prompt ada pada:** poin dari AI saya baca ulang dan cocokkan dengan slide serta panduan praktik HDFS, lalu saya tambahkan pandangan pribadi.
 
 ---
 

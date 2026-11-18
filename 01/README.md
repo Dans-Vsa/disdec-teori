@@ -2,9 +2,9 @@
 >
 > **AI yang digunakan:** Claude (Anthropic)
 >
-> **Prompt:** "Tolong bantu saya mencari sumber dan menyusun rangkuman materi minggu 1 dari slide kuliah."
+> **Prompt:** "Tolong ambilkan poin-poin penting dari slide minggu 1 tentang pengenalan sistem terdistribusi dan terdesentralisasi."
 >
-> **Bagian yang disesuaikan dari keluaran prompt ada pada:** saya mencocokkan isi dengan slide kuliah dan menyesuaikan beberapa kalimat agar lebih mudah saya pahami. Bagian "Pandangan Pribadi" saya tulis berdasarkan pendapat saya sendiri.
+> **Bagian yang disesuaikan dari keluaran prompt ada pada:** poin-poin dari AI saya cocokkan dengan slide kuliah, lalu saya susun ulang urutannya dan saya tulis sendiri bagian "Pandangan Pribadi".
 
 ---
 

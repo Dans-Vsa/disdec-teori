@@ -2,9 +2,9 @@
 >
 > **AI yang digunakan:** Claude (Anthropic)
 >
-> **Prompt:** "Bantu saya merangkum slide minggu 3 tentang sinkronisasi dan koordinasi, urut sesuai agenda pembahasan."
+> **Prompt:** "Apa saja poin penting dari slide minggu 3 tentang sinkronisasi dan koordinasi, urut sesuai agenda?"
 >
-> **Bagian yang disesuaikan dari keluaran prompt ada pada:** saya memeriksa kesesuaian isi dengan slide, terutama bagian vector clock dan mutual exclusion, lalu menyesuaikan kalimatnya. "Pandangan Pribadi" di akhir adalah pendapat saya.
+> **Bagian yang disesuaikan dari keluaran prompt ada pada:** poin dari AI saya periksa terhadap slide, terutama vector clock dan mutual exclusion, lalu saya susun dan sesuaikan kalimatnya.
 
 ---
 

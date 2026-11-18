@@ -2,9 +2,9 @@
 >
 > **AI yang digunakan:** Claude (Anthropic)
 >
-> **Prompt:** "Saya butuh bantuan sedikit untuk menyusun rangkuman materi minggu 2 dari slide, sekaligus mencari penjelasan tambahan untuk istilah yang kurang jelas."
+> **Prompt:** "Ambil poin-poin pentingnya dari slide minggu 2 tentang proses dan komunikasi antar proses."
 >
-> **Bagian yang disesuaikan dari keluaran prompt ada pada:** saya membaca ulang rangkuman bersama slide, merapikan susunannya, dan menambahkan pandangan pribadi pada bagian diskusi.
+> **Bagian yang disesuaikan dari keluaran prompt ada pada:** saya mencocokkan poin dari AI dengan slide, merapikan penjelasannya, dan menjawab pertanyaan diskusi dengan pendapat saya.
 
 ---
 

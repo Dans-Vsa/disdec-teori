@@ -2,9 +2,9 @@
 >
 > **AI yang digunakan:** Claude (Anthropic)
 >
-> **Prompt:** "Saya ingin dibantu menyusun rangkuman materi minggu 4 dari slide, termasuk jawaban untuk pertanyaan diskusi di akhir."
+> **Prompt:** "Rangkum poin-poin kunci dari slide minggu 4 tentang konsistensi dan replikasi, termasuk pertanyaan diskusi."
 >
-> **Bagian yang disesuaikan dari keluaran prompt ada pada:** saya mengecek isi terhadap slide, merapikan bahasa, dan menyesuaikan jawaban diskusi dengan pendapat saya.
+> **Bagian yang disesuaikan dari keluaran prompt ada pada:** saya mengecek poin dari AI dengan slide, menyusunnya kembali, dan menulis jawaban diskusi sesuai pendapat saya.
 
 ---
 
